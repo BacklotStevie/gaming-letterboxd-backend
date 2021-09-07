@@ -11,3 +11,8 @@ app.use(express.json());
 app.listen(port, () => {
   console.log(`server listening on ${port}`);
 });
+
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
+
+const usersRouter = require('../routes/users');
